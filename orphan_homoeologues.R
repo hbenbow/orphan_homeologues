@@ -200,4 +200,4 @@ colnames(D)<-c("Gene", "Designation", "Chromosome","score","Genome")
 all<-rbind(A, B, D)
 all$TRG<-1
 all<-all[,c(1,6)]
-write.csv("~/Documents/Sobia/orphans/hotspots/all_orphans.csv")
+write.csv(all, "~/Documents/Sobia/orphans/hotspots/all_orphans.csv")
