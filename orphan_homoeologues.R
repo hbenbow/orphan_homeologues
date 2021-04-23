@@ -29,6 +29,7 @@ Cardinality == "01:01:01" ~	"1:1:1"
 # 
 
 {
+  setwd("nr/")
 filesA<-list.files(pattern = "A")
 filesB<-list.files(pattern = "B")
 filesD<-list.files(pattern = "D")
@@ -190,3 +191,13 @@ write.csv(All_merged, "~/Documents/Sobia/orphans/Homoeologues/merged.csv")
 plot(table(homo$Cardinality_type))
 plot(table(All_merged$Cardinality_type))
 
+
+# prepare for hotspot analysis
+colnames(A)<-c("Gene", "Designation", "Chromosome","score","Genome")
+colnames(B)<-c("Gene", "Designation", "Chromosome","score","Genome")
+colnames(D)<-c("Gene", "Designation", "Chromosome","score","Genome")
+
+all<-rbind(A, B, D)
+all$TRG<-1
+all<-all[,c(1,6)]
+write.csv("~/Documents/Sobia/orphans/hotspots/all_orphans.csv")
